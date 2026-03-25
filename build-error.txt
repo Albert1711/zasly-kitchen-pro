@@ -1,0 +1,111 @@
+﻿  ÔÇó electron-builder  version=25.1.8 os=10.0.26100
+  ÔÇó loaded configuration  file=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\electron-builder.json
+  ÔÇó description is missed in the package.json  appPackageFile=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\package.json
+  ÔÇó author is missed in the package.json  appPackageFile=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\package.json
+  ÔÇó executing @electron/rebuild  electronVersion=34.5.8 arch=x64 buildFromSource=false appDir=./
+  ÔÇó installing native dependencies  arch=x64
+  ÔÇó completed installing native dependencies
+  ÔÇó packaging       platform=win32 arch=x64 electron=34.5.8 appOutDir=dist_electron\win-unpacked
+  ÔÇó updating asar integrity executable resource  executablePath=dist_electron\win-unpacked\Zasly Kitchen Pro.exe
+  ÔÇó signing with signtool.exe  path=dist_electron\win-unpacked\Zasly Kitchen Pro.exe
+  ÔÇó no signing info identified, signing is skipped  signHook=false cscInfo=null
+  ÔÇó building        target=nsis file=dist_electron\Zasly Kitchen Pro Setup 0.0.0.exe archs=x64 oneClick=false perMachine=false
+  ÔÇó signing with signtool.exe  path=dist_electron\win-unpacked\resources\elevate.exe
+  ÔÇó no signing info identified, signing is skipped  signHook=false cscInfo=null
+  Ô¿» C:\Users\2\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\Bin\makensis.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE
+Exit code:
+1
+Output:
+Command line defined: "APP_ID=com.zasly.kitchen"
+Command line defined: "APP_GUID=4c06ffea-5bd3-521a-a6af-58d13b23704f"
+Command line defined: "UNINSTALL_APP_KEY=4c06ffea-5bd3-521a-a6af-58d13b23704f"
+Command line defined: "PRODUCT_NAME=Zasly Kitchen Pro"
+Command line defined: "PRODUCT_FILENAME=Zasly Kitchen Pro"
+Command line defined: "APP_FILENAME=Zasly Kitchen Pro"
+Command line defined: "APP_DESCRIPTION="
+Command line defined: "VERSION=0.0.0"
+Command line defined: "PROJECT_DIR=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop"
+Command line defined: "BUILD_RESOURCES_DIR=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\build"
+Command line defined: "APP_PACKAGE_NAME=kitchen-desktop"
+Command line defined: "MUI_ICON=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\.icon-ico\icon.ico"
+Command line defined: "MUI_UNICON=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\.icon-ico\icon.ico"
+Command line defined: "APP_64=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\kitchen-desktop-0.0.0-x64.nsis.7z"
+Command line defined: "APP_64_NAME=kitchen-desktop-0.0.0-x64.nsis.7z"
+Command line defined: "APP_64_HASH=4B5390AA2F00F29C1F79A0124781149A5D0C2C93FE36C0307B412783D798A0D7A8151702A8947865308CA53118FB728F81549E30D129F1C35B77189A0FAA8355"
+Command line defined: "APP_64_UNPACKED_SIZE=325974"
+Command line defined: "APP_INSTALLER_STORE_FILE=kitchen-desktop-updater\installer.exe"
+Command line defined: "COMPRESSION_METHOD=7z"
+Command line defined: "MULTIUSER_INSTALLMODE_ALLOW_ELEVATION"
+Command line defined: "INSTALL_MODE_PER_ALL_USERS_REQUIRED"
+Command line defined: "allowToChangeInstallationDirectory"
+Command line defined: "SHORTCUT_NAME=Zasly Kitchen Pro"
+Command line defined: "DELETE_APP_DATA_ON_UNINSTALL"
+Command line defined: "UNINSTALL_DISPLAY_NAME=Zasly Kitchen Pro 0.0.0"
+Command line defined: "MUI_HEADERIMAGE"
+Command line defined: "MUI_HEADERIMAGE_RIGHT"
+Command line defined: "MUI_HEADERIMAGE_BITMAP=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\public\logo zasly inco.png"
+Command line defined: "MUI_WELCOMEFINISHPAGE_BITMAP=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\public\logo zasly inco.png"
+Command line defined: "MUI_UNWELCOMEFINISHPAGE_BITMAP=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\public\logo zasly inco.png"
+Command line defined: "ESTIMATED_SIZE=325974"
+Command line defined: "COMPRESS=auto"
+Command line defined: "BUILD_UNINSTALLER"
+Command line defined: "UNINSTALLER_OUT_FILE=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\__uninstaller-nsis-kitchen-desktop.exe"
+Processing config: C:\Users\2\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\nsisconf.nsh
+Processing script file: "<stdin>" (UTF8)
+
+Error output:
+Error: command SendMessage not valid outside Section or Function
+Error in macro MUI_HEADER_TEXT on macroline 9
+Error in macro customHeader on macroline 1
+Error in script "<stdin>" on line 118 -- aborting creation process
+  failedTask=build stackTrace=Error: C:\Users\2\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\Bin\makensis.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE
+Exit code:
+1
+Output:
+Command line defined: "APP_ID=com.zasly.kitchen"
+Command line defined: "APP_GUID=4c06ffea-5bd3-521a-a6af-58d13b23704f"
+Command line defined: "UNINSTALL_APP_KEY=4c06ffea-5bd3-521a-a6af-58d13b23704f"
+Command line defined: "PRODUCT_NAME=Zasly Kitchen Pro"
+Command line defined: "PRODUCT_FILENAME=Zasly Kitchen Pro"
+Command line defined: "APP_FILENAME=Zasly Kitchen Pro"
+Command line defined: "APP_DESCRIPTION="
+Command line defined: "VERSION=0.0.0"
+Command line defined: "PROJECT_DIR=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop"
+Command line defined: "BUILD_RESOURCES_DIR=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\build"
+Command line defined: "APP_PACKAGE_NAME=kitchen-desktop"
+Command line defined: "MUI_ICON=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\.icon-ico\icon.ico"
+Command line defined: "MUI_UNICON=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\.icon-ico\icon.ico"
+Command line defined: "APP_64=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\kitchen-desktop-0.0.0-x64.nsis.7z"
+Command line defined: "APP_64_NAME=kitchen-desktop-0.0.0-x64.nsis.7z"
+Command line defined: "APP_64_HASH=4B5390AA2F00F29C1F79A0124781149A5D0C2C93FE36C0307B412783D798A0D7A8151702A8947865308CA53118FB728F81549E30D129F1C35B77189A0FAA8355"
+Command line defined: "APP_64_UNPACKED_SIZE=325974"
+Command line defined: "APP_INSTALLER_STORE_FILE=kitchen-desktop-updater\installer.exe"
+Command line defined: "COMPRESSION_METHOD=7z"
+Command line defined: "MULTIUSER_INSTALLMODE_ALLOW_ELEVATION"
+Command line defined: "INSTALL_MODE_PER_ALL_USERS_REQUIRED"
+Command line defined: "allowToChangeInstallationDirectory"
+Command line defined: "SHORTCUT_NAME=Zasly Kitchen Pro"
+Command line defined: "DELETE_APP_DATA_ON_UNINSTALL"
+Command line defined: "UNINSTALL_DISPLAY_NAME=Zasly Kitchen Pro 0.0.0"
+Command line defined: "MUI_HEADERIMAGE"
+Command line defined: "MUI_HEADERIMAGE_RIGHT"
+Command line defined: "MUI_HEADERIMAGE_BITMAP=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\public\logo zasly inco.png"
+Command line defined: "MUI_WELCOMEFINISHPAGE_BITMAP=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\public\logo zasly inco.png"
+Command line defined: "MUI_UNWELCOMEFINISHPAGE_BITMAP=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\public\logo zasly inco.png"
+Command line defined: "ESTIMATED_SIZE=325974"
+Command line defined: "COMPRESS=auto"
+Command line defined: "BUILD_UNINSTALLER"
+Command line defined: "UNINSTALLER_OUT_FILE=C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\dist_electron\__uninstaller-nsis-kitchen-desktop.exe"
+Processing config: C:\Users\2\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\nsisconf.nsh
+Processing script file: "<stdin>" (UTF8)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Error output:
+Error: command SendMessage not valid outside Section or Function
+Error in macro MUI_HEADER_TEXT on macroline 9
+Error in macro customHeader on macroline 1
+Error in script "<stdin>" on line 118 -- aborting creation process
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    at ChildProcess.<anonymous> (C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\node_modules\builder-util\src\util.ts:255:14)
+    at Object.onceWrapper (node:events:633:26)
+    at ChildProcess.emit (node:events:518:28)
+    at ChildProcess.cp.emit (C:\Users\2\Documents\web\trebeal-proyecto\zasly-menu\kitchen-desktop\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:304:5)

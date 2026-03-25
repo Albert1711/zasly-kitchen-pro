@@ -10,7 +10,15 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist_electron
+dist_pack
 *.local
+.env
+build-error.txt
+build-log.txt
+*.exe
+*.zip
+*.blockmap
 
 # Editor directories and files
 .vscode/*

@@ -35,7 +35,7 @@ export function KitchenSidebar({ onResetOnboarding }: { onResetOnboarding?: () =
   const location = useLocation();
 
   return (
-    <div className="w-16 border-r border-white/10 bg-black flex flex-col h-screen sticky top-0 shrink-0 transition-all duration-300">
+    <div className="w-16 border-r border-white/10 bg-black flex flex-col h-full shrink-0 transition-all duration-300">
       <div className="p-3 flex justify-center py-6">
         <button 
           onClick={onResetOnboarding}

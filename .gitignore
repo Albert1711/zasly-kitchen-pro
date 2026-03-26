@@ -7,10 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Environment (do not commit secrets)
+.env
+.env.*
+
 node_modules
 dist
 dist-ssr
 *.local
+
+# Electron / builder outputs
+dist_electron
+dist_pack
+build-publish-log.txt
 
 # Editor directories and files
 .vscode/*

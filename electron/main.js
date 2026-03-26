@@ -9,17 +9,42 @@ const __dirname = path.dirname(__filename);
 
 let mainWindow;
 
+let windowControlsRegistered = false;
+
+function registerWindowControls() {
+  if (windowControlsRegistered) return;
+  windowControlsRegistered = true;
+
+  ipcMain.on('window_minimize', () => {
+    if (!mainWindow) return;
+    mainWindow.minimize();
+  });
+
+  ipcMain.on('window_toggle_maximize', () => {
+    if (!mainWindow) return;
+    if (mainWindow.isMaximized()) mainWindow.unmaximize();
+    else mainWindow.maximize();
+  });
+
+  ipcMain.on('window_close', () => {
+    if (!mainWindow) return;
+    mainWindow.close();
+  });
+}
+
 function loadDevUrl() {
   const devUrl = process.env.VITE_DEV_SERVER_URL || 'http://localhost:5178';
   mainWindow.loadURL(devUrl);
 }
 
 function createWindow() {
+  registerWindowControls();
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 800,
     title: "Zasly Kitchen Pro",
     icon: path.join(__dirname, '../public/logo zasly inco.png'),
+    frame: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -28,6 +53,15 @@ function createWindow() {
     },
     autoHideMenuBar: true, 
   });
+
+  const sendMaximizeState = () => {
+    if (!mainWindow) return;
+    mainWindow.webContents.send('window_maximize_state', { isMaximized: mainWindow.isMaximized() });
+  };
+
+  mainWindow.on('maximize', sendMaximizeState);
+  mainWindow.on('unmaximize', sendMaximizeState);
+  mainWindow.on('ready-to-show', sendMaximizeState);
 
   // Forzar apertura de DevTools en producción para depurar pantalla negra
   mainWindow.webContents.on('did-finish-load', () => {

@@ -7,5 +7,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onUpdateDownloadProgress: (callback) => ipcRenderer.on('update_download_progress', (_event, payload) => callback(payload)),
   onUpdateDownloaded: (callback) => ipcRenderer.on('update_downloaded', callback),
   onUpdateError: (callback) => ipcRenderer.on('update_error', (_event, payload) => callback(payload)),
-  restartApp: () => ipcRenderer.send('restart_app')
+  restartApp: () => ipcRenderer.send('restart_app'),
+  minimizeWindow: () => ipcRenderer.send('window_minimize'),
+  toggleMaximizeWindow: () => ipcRenderer.send('window_toggle_maximize'),
+  closeWindow: () => ipcRenderer.send('window_close'),
+  onMaximizeState: (callback) => ipcRenderer.on('window_maximize_state', (_event, payload) => callback(payload))
 });

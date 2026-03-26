@@ -75,12 +75,46 @@ function createWindow() {
 }
 
 // Auto-updater events
+autoUpdater.on('checking-for-update', () => {
+  if (!mainWindow) return;
+  mainWindow.webContents.send('update_checking');
+});
+
 autoUpdater.on('update-available', () => {
+  if (!mainWindow) return;
   mainWindow.webContents.send('update_available');
+  try {
+    autoUpdater.downloadUpdate();
+  } catch (_e) {
+    // ignore
+  }
+});
+
+autoUpdater.on('update-not-available', () => {
+  if (!mainWindow) return;
+  mainWindow.webContents.send('update_not_available');
+});
+
+autoUpdater.on('download-progress', (progress) => {
+  if (!mainWindow) return;
+  mainWindow.webContents.send('update_download_progress', {
+    percent: progress?.percent,
+    transferred: progress?.transferred,
+    total: progress?.total,
+    bytesPerSecond: progress?.bytesPerSecond,
+  });
 });
 
 autoUpdater.on('update-downloaded', () => {
+  if (!mainWindow) return;
   mainWindow.webContents.send('update_downloaded');
+});
+
+autoUpdater.on('error', (err) => {
+  if (!mainWindow) return;
+  mainWindow.webContents.send('update_error', {
+    message: err?.message || String(err),
+  });
 });
 
 ipcMain.on('restart_app', () => {

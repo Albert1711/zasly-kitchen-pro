@@ -12,6 +12,8 @@ declare global {
       onUpdateDownloaded: (callback: () => void) => void;
       onUpdateError: (callback: (payload: { message: string }) => void) => void;
       restartApp: () => void;
+      checkForUpdates: () => void;
+      getAppVersion: () => Promise<string>;
     };
   }
 }
@@ -20,10 +22,16 @@ export function UpdateNotifier() {
   const [status, setStatus] = useState<'idle' | 'checking' | 'downloading' | 'downloaded' | 'error'>('idle');
   const [progress, setProgress] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [version, setVersion] = useState<string | null>(null);
 
   useEffect(() => {
     // Check if we are running in Electron
     if (window.electronAPI) {
+      window.electronAPI
+        .getAppVersion()
+        .then((v) => setVersion(v))
+        .catch(() => setVersion(null));
+
       window.electronAPI.onUpdateChecking(() => {
         setError(null);
         setProgress(null);
@@ -60,7 +68,26 @@ export function UpdateNotifier() {
     }
   }, []);
 
-  if (status === 'idle') return null;
+  // When idle, still show a small button so the user can force a check.
+  if (status === 'idle') {
+    if (!window.electronAPI) return null;
+
+    return (
+      <div className="fixed bottom-6 right-6 z-[200]">
+        <div className="bg-white border border-slate-200 shadow-2xl rounded-2xl p-4 max-w-sm ring-1 ring-black/5">
+          <div className="text-xs font-bold text-slate-700">
+            {version ? `Versión instalada: v${version}` : 'Versión instalada: (desconocida)'}
+          </div>
+          <Button
+            onClick={() => window.electronAPI.checkForUpdates()}
+            className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl"
+          >
+            Buscar actualización ahora
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const title =
     status === 'downloaded'
@@ -100,6 +127,9 @@ export function UpdateNotifier() {
             <p className="text-sm text-slate-500 leading-relaxed">
               {description}
             </p>
+            <div className="text-[11px] font-bold text-slate-700 pt-1">
+              {version ? `Versión instalada: v${version}` : null}
+            </div>
           </div>
         </div>
         <div className="mt-6 flex gap-3">
@@ -112,9 +142,12 @@ export function UpdateNotifier() {
               Reiniciar y Actualizar
             </Button>
           ) : status === 'error' ? (
-            <div className="text-xs font-medium text-rose-700 bg-rose-50 px-3 py-2 rounded-lg w-full text-center">
-              Falló la actualización
-            </div>
+            <Button
+              onClick={() => window.electronAPI.checkForUpdates()}
+              className="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl"
+            >
+              Reintentar actualización
+            </Button>
           ) : (
             <div className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-2 rounded-lg w-full text-center">
               {status === 'checking'

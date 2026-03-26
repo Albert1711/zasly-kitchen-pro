@@ -30,6 +30,18 @@ function registerWindowControls() {
     if (!mainWindow) return;
     mainWindow.close();
   });
+
+  ipcMain.on('check_for_updates', () => {
+    try {
+      autoUpdater.checkForUpdates();
+    } catch (_e) {
+      // ignore
+    }
+  });
+
+  ipcMain.handle('app_version', () => {
+    return app.getVersion();
+  });
 }
 
 function loadDevUrl() {

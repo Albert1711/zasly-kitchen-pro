@@ -11,5 +11,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   minimizeWindow: () => ipcRenderer.send('window_minimize'),
   toggleMaximizeWindow: () => ipcRenderer.send('window_toggle_maximize'),
   closeWindow: () => ipcRenderer.send('window_close'),
-  onMaximizeState: (callback) => ipcRenderer.on('window_maximize_state', (_event, payload) => callback(payload))
+  onMaximizeState: (callback) => ipcRenderer.on('window_maximize_state', (_event, payload) => callback(payload)),
+  checkForUpdates: () => ipcRenderer.send('check_for_updates'),
+  getAppVersion: () => ipcRenderer.invoke('app_version')
 });

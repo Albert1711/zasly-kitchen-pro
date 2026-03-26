@@ -55,7 +55,6 @@ function App() {
           <Route path="/configuracion" element={<KitchenSettings />} />
         </Routes>
       </KitchenLayout>
-      <UpdateNotifier />
     </>
   );
 }

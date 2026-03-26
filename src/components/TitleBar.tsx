@@ -1,62 +1,49 @@
-import { useEffect, useState } from "react";
-import { Minus, Square, X } from "lucide-react";
-
-declare global {
-  interface Window {
-    electronAPI?: {
-      minimizeWindow: () => void;
-      toggleMaximizeWindow: () => void;
-      closeWindow: () => void;
-      onMaximizeState: (callback: (payload: { isMaximized: boolean }) => void) => void;
-    };
-  }
-}
+import { useEffect, useState } from 'react';
+import { Minus, Square, X } from 'lucide-react';
+import { TitleBarUpdate } from './TitleBarUpdate';
 
 export function TitleBar() {
   const [isMaximized, setIsMaximized] = useState(false);
 
   useEffect(() => {
-    if (!window.electronAPI?.onMaximizeState) return;
-    window.electronAPI.onMaximizeState((payload) => {
-      setIsMaximized(Boolean(payload?.isMaximized));
-    });
+    if (window.electronAPI && window.electronAPI.onMaximizeState) {
+      window.electronAPI.onMaximizeState((maximized: boolean) => {
+        setIsMaximized(!!maximized);
+      });
+    }
   }, []);
 
   return (
-    <div
-      className="h-10 w-full bg-[#FF4500] text-white flex items-center justify-between select-none"
-      style={{ WebkitAppRegion: "drag" } as any}
-    >
-      <div className="flex items-center gap-2 px-3 min-w-0">
-        <img
-          src="./logo%20zasly%20inco.png"
-          alt="Logo"
-          className="h-7 w-auto object-contain"
-          draggable={false}
-        />
-        <div className="font-black tracking-tight truncate">Zasly Kitchen Pro</div>
+    <div className="h-10 bg-[#FF4500] flex items-center justify-between select-none border-b border-black/10" style={{ WebkitAppRegion: 'drag' } as any}>
+      <div className="flex items-center h-full">
+        <div className="flex items-center px-3 gap-2" style={{ WebkitAppRegion: 'no-drag' } as any}>
+          <img src="/logo zasly inco.png" alt="Zasly" className="h-6 w-auto" />
+          <span className="text-white font-bold text-sm tracking-tight uppercase">ZASLY KITCHEN PRO</span>
+        </div>
+        
+        <TitleBarUpdate />
       </div>
 
-      <div className="flex items-stretch h-full" style={{ WebkitAppRegion: "no-drag" } as any}>
-        <button
+      <div className="flex h-full" style={{ WebkitAppRegion: 'no-drag' } as any}>
+        <button 
           onClick={() => window.electronAPI?.minimizeWindow()}
-          className="w-12 hover:bg-black/15 transition-colors flex items-center justify-center"
-          aria-label="Minimizar"
+          className="px-4 h-full hover:bg-black/10 transition-colors text-white flex items-center justify-center"
         >
           <Minus className="w-4 h-4" />
         </button>
-        <button
+        <button 
           onClick={() => window.electronAPI?.toggleMaximizeWindow()}
-          className="w-12 hover:bg-black/15 transition-colors flex items-center justify-center"
-          aria-label={isMaximized ? "Restaurar" : "Maximizar"}
-          title={isMaximized ? "Restaurar" : "Maximizar"}
+          className="px-4 h-full hover:bg-black/10 transition-colors text-white flex items-center justify-center"
         >
-          <Square className="w-4 h-4" />
+          {isMaximized ? (
+            <svg width="12" height="12" viewBox="0 0 12 12" className="w-3 h-3"><path fill="currentColor" d="M2.1,0v2H0v8.1h8.2v-2h2V0H2.1z M7.2,9.2H1.1V3h6.1V9.2z M9.2,7.1h-1V3H3.1V1.1h6.1V7.1z"/></svg>
+          ) : (
+            <Square className="w-3.5 h-3.5" />
+          )}
         </button>
-        <button
+        <button 
           onClick={() => window.electronAPI?.closeWindow()}
-          className="w-12 hover:bg-black/25 transition-colors flex items-center justify-center"
-          aria-label="Cerrar"
+          className="px-4 h-full hover:bg-rose-600 transition-colors text-white flex items-center justify-center"
         >
           <X className="w-4 h-4" />
         </button>

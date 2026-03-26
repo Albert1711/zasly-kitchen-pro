@@ -1,5 +1,6 @@
 {
-  "appId": "com.zasly.kitchen",
+  "appId": "com.zasly.kitchenpro",
+  "copyright": "Copyright 2024 Zasly",
   "productName": "Zasly Kitchen Pro",
   "publish": [
     {
@@ -27,6 +28,8 @@
     "allowToChangeInstallationDirectory": true,
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
+    "artifactName": "Zasly-Kitchen-Pro-Setup-${version}.${ext}",
+    "uninstallDisplayName": "Zasly Kitchen Pro",
     "shortcutName": "Zasly Kitchen Pro",
     "deleteAppDataOnUninstall": true,
     "include": "build/uninstaller.nsh",

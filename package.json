@@ -17,7 +17,8 @@
     "preview": "vite preview",
     "electron:dev": "concurrently \"npx vite --port 5178 --strictPort\" \"wait-on http://localhost:5178 && set NODE_ENV=development && electron .\"",
     "electron:dev:clean": "powershell -NoProfile -Command \"Get-Process -Name electron,node,vite -ErrorAction SilentlyContinue | Stop-Process -Force; $env:NODE_ENV='development'; $env:VITE_DEV_SERVER_URL='http://localhost:5178'; Start-Process -NoNewWindow -FilePath 'npx' -ArgumentList 'vite','--port','5178','--strictPort'; npx wait-on http://localhost:5178; electron .\"",
-    "electron:build": "npm run build && electron-builder",
+    "electron:build": "npm run build && electron-builder --publish never",
+    "electron:publish": "npm run build && electron-builder --publish always",
     "exe:pack": "npm run build && electron-packager . \"Zasly Kitchen Pro\" --platform=win32 --arch=x64 --out=dist_pack --overwrite --asar --icon=public/app-icon.png"
   },
   "dependencies": {
